@@ -29,6 +29,7 @@ async function main(){
             const cursor = notesCollection.find(query);
             const allNotes = await cursor.toArray();
             console.log(query);
+            console.log(allNotes);
             res.send(allNotes.reverse());
         })
 
@@ -36,8 +37,9 @@ async function main(){
         // New note store API
         app.post('/new_note',async(req,res) => {
             const newNote = req.body;
+            console.log(newNote);
             const result = await notesCollection.insertOne(newNote);
-            // console.log(result)
+            console.log(result)
             // res.send(result);
             // const query = {email: newNote.email}
             // const cursor = notesCollection.find(query);
